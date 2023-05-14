@@ -1,13 +1,12 @@
 import './App.css'
-import Form from './components/Form'
-
+import ExpenseForm from './components/ExpenseForm'
 
 
 function App() {
 
   return (
     <>
-      <Form />
+      <ExpenseForm />
     </>
   )
 }
