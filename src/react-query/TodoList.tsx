@@ -1,15 +1,8 @@
 import useTodos from '../hooks/useTodos';
 
-interface Todo {
-    id: number;
-    title: string;
-    userId: number;
-    completed: boolean;
-}
-
 const TodoList = () => {
 
-    const { data, error, isLoading } = useTodos<Todo>('/todos', ['todo']);
+    const { data, error, isLoading } = useTodos();
     if (error) return <p>{error.message}</p>
     return (
         <ul className="list-group p-5">

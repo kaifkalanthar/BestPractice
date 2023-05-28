@@ -1,14 +1,12 @@
-import { useQuery } from 'react-query';
-import http from '../service/api-url';
+import useData from './useData';
 
-
-
-const useTodos = <T>(endPoint: string, key: any[]) => {
-    const fetchData = () => http.get<T[]>(endPoint).then(res => res.data);
-    return useQuery<T[], Error>({
-        queryKey: key,
-        queryFn: fetchData
-    });
+interface Todo {
+    id: number;
+    title: string;
+    userId: number;
+    completed: boolean;
 }
+
+const useTodos = () => useData<Todo>('/todos', ['todo']);
 
 export default useTodos;

@@ -1,11 +1,10 @@
 import './App.css'
-import useTodos from './hooks/useTodos'
-import TodoList from './react-query/TodoList'
+import PostList from './react-query/PostList'
 
 function App() {
   return (
     <>
-      <TodoList />
+      <PostList />
     </>
   )
 }
