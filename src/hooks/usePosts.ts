@@ -6,10 +6,16 @@ interface Post {
     body: string;
 }
 
-const usePost = (userId: number | undefined) =>
-    useData<Post>('/posts', userId ? ['users', userId, 'posts'] : ['posts'], {
+interface PageQuery {
+    page: number;
+    pageSize: number;
+}
+
+const usePost = (query: PageQuery) =>
+    useData<Post>('/posts', [query], {
         params: {
-            userId
+            _start: (query.page - 1) * query.pageSize,
+            _limit: query.pageSize
         }
     });
 

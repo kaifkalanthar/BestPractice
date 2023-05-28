@@ -11,7 +11,8 @@ const useData = <T>(endPoint: string, key: any[], requestConfig?: AxiosRequestCo
     return useQuery<T[], Error>({
         queryKey: key,
         queryFn: fetchData,
-        staleTime: 10 * 1000
+        staleTime: 1 * 60 * 1000,
+        keepPreviousData: true
     });
 }
 
